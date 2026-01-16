@@ -3,21 +3,23 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa;
-  color: #333;
+  background: #ffeef5; /* very light pink background */
+  color: #4a3f3f; /* dark muted text color for contrast */
 }
 
 /* Header */
 header {
-  background: linear-gradient(to right, #4b6cb7, #182848);
-  color: white;
-  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #ffb6c1, #f3c6c7); /* gradient pink */
+  color: #4a3f3f;
+  padding: 2.5rem 1rem;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  letter-spacing: 1px;
 }
 
 header p {
@@ -26,66 +28,117 @@ header p {
 }
 
 header a {
-  color: white;
+  color: #8b5e6b;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 /* Section titles */
 h2 {
-  color: #4b6cb7;
+  color: #d77fa1; /* muted pink */
   margin-bottom: 1rem;
   text-align: center;
+  font-size: 2rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f3c6c7;
+  margin: 8px auto 0;
+  border-radius: 2px;
 }
 
 /* Projects and Labs */
 .projects, .labs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 1.2rem;
+  margin: 1rem 0;
 }
 
 .card {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: #fff0f5; /* very soft pink */
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transform: translateY(-8px) rotate(-0.5deg);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  color: #d77fa1;
+  margin-top: 0;
 }
 
 .card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: #f7c8d1;
+  color: #4a3f3f;
   text-decoration: none;
-  color: #4b6cb7;
+  border-radius: 8px;
   font-weight: bold;
+  transition: background 0.3s;
+}
+
+.card a:hover {
+  background: #d77fa1;
+  color: white;
 }
 
 /* Resume section */
 .resume {
-  background-color: white;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: #fff0f5;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
   max-width: 700px;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .resume h3 {
-  color: #4b6cb7;
+  color: #d77fa1;
 }
 
 .resume ul {
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #4b6cb7;
-  color: white;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f3c6c7, #ffb6c1);
+  color: #4a3f3f;
   margin-top: 2rem;
+  font-weight: bold;
+}
+
+/* Links */
+a {
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #ff4d91;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
 }
