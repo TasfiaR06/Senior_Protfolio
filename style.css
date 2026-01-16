@@ -1,43 +1,55 @@
-/* General styles */
+/* =========================
+   General Styles
+========================= */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background: #ffeef5; /* very light pink background */
-  color: #4a3f3f; /* dark muted text color for contrast */
+  color: #4a3f3f; /* muted dark text for contrast */
+  line-height: 1.6;
 }
 
-/* Header */
+/* =========================
+   Header
+========================= */
 header {
-  background: linear-gradient(135deg, #ffb6c1, #f3c6c7); /* gradient pink */
+  background: linear-gradient(135deg, #ffc1d3, #f3c6c7); /* soft pink gradient */
   color: #4a3f3f;
-  padding: 2.5rem 1rem;
+  padding: 3rem 1rem;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  margin: 0;
   font-size: 3rem;
+  margin: 0;
   letter-spacing: 1px;
 }
 
 header p {
-  margin: 0.5rem 0 0;
   font-size: 1.2rem;
+  margin: 0.5rem 0 0;
 }
 
 header a {
   color: #8b5e6b;
   text-decoration: underline;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
-/* Section titles */
+header a:hover {
+  color: #ff4d91;
+}
+
+/* =========================
+   Section Titles
+========================= */
 h2 {
   color: #d77fa1; /* muted pink */
-  margin-bottom: 1rem;
   text-align: center;
+  margin-bottom: 1.5rem;
   font-size: 2rem;
   position: relative;
 }
@@ -46,30 +58,51 @@ h2::after {
   content: "";
   display: block;
   width: 60px;
-  height: 3px;
+  height: 4px;
   background: #f3c6c7;
   margin: 8px auto 0;
   border-radius: 2px;
 }
 
-/* Projects and Labs */
+/* =========================
+   Projects & Labs
+========================= */
 .projects, .labs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.2rem;
+  gap: 1.5rem;
   margin: 1rem 0;
 }
 
 .card {
-  background: #fff0f5; /* very soft pink */
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff0f5; /* soft pink */
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,182,193,0.2) 0%, transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.card:hover::before {
+  top: -30%;
+  left: -30%;
 }
 
 .card:hover {
-  transform: translateY(-8px) rotate(-0.5deg);
+  transform: translateY(-10px) scale(1.02);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
@@ -78,52 +111,63 @@ h2::after {
   margin-top: 0;
 }
 
+.card p {
+  margin: 0.5rem 0 1rem;
+}
+
 .card a {
   display: inline-block;
   margin-top: 10px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   background: #f7c8d1;
   color: #4a3f3f;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .card a:hover {
   background: #d77fa1;
   color: white;
+  transform: translateY(-3px);
 }
 
-/* Resume section */
+/* =========================
+   Resume Section
+========================= */
 .resume {
   background: #fff0f5;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   max-width: 700px;
   margin: 2rem auto;
 }
 
 .resume h3 {
   color: #d77fa1;
+  margin-top: 1rem;
 }
 
 .resume ul {
   padding-left: 1.5rem;
 }
 
-/* Footer */
+/* =========================
+   Footer
+========================= */
 footer {
   text-align: center;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #f3c6c7, #ffb6c1);
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f3c6c7, #ffc1d3);
   color: #4a3f3f;
-  margin-top: 2rem;
   font-weight: bold;
 }
 
-/* Links */
+/* =========================
+   Links
+========================= */
 a {
   transition: color 0.3s;
 }
@@ -132,7 +176,9 @@ a:hover {
   color: #ff4d91;
 }
 
-/* Responsive adjustments */
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 600px) {
   header h1 {
     font-size: 2rem;
@@ -140,5 +186,13 @@ a:hover {
 
   h2 {
     font-size: 1.6rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card a {
+    padding: 6px 12px;
   }
 }
